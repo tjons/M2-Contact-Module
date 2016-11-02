@@ -1,0 +1,53 @@
+<?php
+/**
+ * SwiftOtter_Base is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SwiftOtter_Base is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with SwiftOtter_Base. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright: 2013 (c) SwiftOtter Studios
+ *
+ * @author Tyler Schade
+ * @copyright Swift Otter Studios, 10/5/16
+ * @package default
+ **/
+?>
+
+<?php /** @var \TylerSchade\Contacts\Block\Add $block */ ?>
+
+<?php if ($block->getIsLoggedIn()): ?>
+<h1><?php echo __('Add a new contact'); ?></h1>
+<form action="<?php echo $block->getSubmitUrl(); ?>" method="post">
+    <fieldset>
+        <ul>
+            <li>
+                <label>First name</label><input type="text" name="first_name">
+            </li>
+            <li>
+                <label>Last name</label><input type="text" name="last_name">
+            </li>
+            <li>
+                <label>Date of birth</label><input type="date" name="birthday">
+            </li>
+            <li>
+                <label>Phone number</label><input type="tel" name="phone_number">
+            </li>
+            <li>
+                <label>Email address</label><input type="email" name="email_address">
+            </li>
+            <li>
+                <input type="submit">
+            </li>
+        </ul>
+    </fieldset>
+</form>
+<?php else: ?>
+    <?php echo $block->getChildHtml('unauthorized'); ?>
+<?php endif; ?>

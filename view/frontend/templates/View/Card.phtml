@@ -1,0 +1,49 @@
+<?php
+/**
+ * SwiftOtter_Base is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SwiftOtter_Base is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with SwiftOtter_Base. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright: 2013 (c) SwiftOtter Studios
+ *
+ * @author Tyler Schade
+ * @copyright Swift Otter Studios, 10/19/16
+ * @package default
+ **/
+?>
+
+<?php /** @var TylerSchade\Contacts\Block\View\Card $block */ ?>
+<?php /** @var TylerSchade\Contacts\Model\Contact $contact */ ?>
+<?php $contact = $block->getContact(); ?>
+<div class="contact-card">
+    <h1>View Contact</h1>
+    <section>
+        <p>
+            <label><?php echo __('First name: '); ?></label><?php echo $contact->getFirstName(); ?>
+        </p>
+        <p>
+            <label><?php echo __('Last name: '); ?></label><?php echo $contact->getLastName(); ?>
+        </p>
+    </section>
+    <section>
+        <p>
+            <label><?php echo __('Email Address: '); ?></label><a href="mailto:<?php echo $contact->getEmailAddress(); ?>"><?php echo $contact->getEmailAddress(); ?></a>
+        </p>
+        <p>
+            <label><?php echo __('Phone Number: '); ?></label><a href="tel:<?php echo $contact->getRawPhoneNumber(); ?>"><?php echo $contact->getPhoneNumber(); ?></a>
+        </p>
+    </section>
+    <section>
+        <p>
+            <label><?php echo __('Birthday: '); ?></label><?php echo $contact->getBirthday(); ?>
+        </p>
+    </section>
+</div>

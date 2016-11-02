@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block template="main.phtml" class="TylerSchade\Contacts\Block\Main" name="tylerschade_contacts_block_main">
+                <block template="view.phtml" class="TylerSchade\Contacts\Block\View" name="contakt_view">
+                    <block template="unauthorized.phtml" class="TylerSchade\Contacts\Block\Main" name="unauthorized" />
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+            <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <block name="contakt.controls" class="TylerSchade\Contacts\Block\Sidebar" template="TylerSchade_Contacts::sidebar.phtml">
+                <action method="addLink">
+                    <argument name="url" xsi:type="string">*/add/newContact</argument>
+                    <argument name="title" translate="true" xsi:type="string">Add contacts</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
